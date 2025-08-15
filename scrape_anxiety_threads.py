@@ -34,7 +34,7 @@ while True:
             EC.presence_of_element_located((By.CSS_SELECTOR, "a[title]"))
         )
     except Exception as e:
-        print(f"⚠️ Could not find threads on page {page_counter}. Stopping. Reason: {e}")
+        print(f" Could not find threads on page {page_counter}. Stopping. Reason: {e}")
         break
 
     # Parse page
@@ -58,12 +58,12 @@ while True:
                 if next_href.startswith("http")
                 else "https://forums.beyondblue.org.au" + next_href
             )
-            print(f"➡️ Going to: {next_url}")
+            print(f" Going to: {next_url}")
             driver.get(next_url)
             page_counter += 1
             time.sleep(2)
             continue
-    print("✅ No more pages. Scraping complete.")
+    print(" No more pages. Scraping complete.")
     break
 
 driver.quit()
@@ -71,4 +71,4 @@ driver.quit()
 df = pd.DataFrame(threads).drop_duplicates()
 df.to_csv("beyondblue_anxiety_threads_all.csv", index=False)
 
-print(f"✅ Scraped {len(df)} threads successfully.")
+print(f" Scraped {len(df)} threads successfully.")

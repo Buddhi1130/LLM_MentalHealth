@@ -58,7 +58,7 @@ while True:
                 if next_href.startswith("http")
                 else "https://forums.beyondblue.org.au" + next_href
             )
-            print(f"➡️ Going to: {next_url}")
+            print(f" Going to: {next_url}")
             driver.get(next_url)
             page_counter += 1
             time.sleep(2)

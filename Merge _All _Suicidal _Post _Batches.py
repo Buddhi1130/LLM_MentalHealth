@@ -11,7 +11,7 @@ csv_files = glob.glob(os.path.join(folder_path, "*.csv"))
 # Load and combine all files
 all_batches = []
 for file in csv_files:
-    print(f"🔄 Merging: {file}")
+    print(f" Merging: {file}")
     df = pd.read_csv(file)
     all_batches.append(df)
 
@@ -20,4 +20,4 @@ merged_df = pd.concat(all_batches, ignore_index=True)
 
 # Save to final CSV
 merged_df.to_csv("beyondblue_suicidal_posts_all.csv", index=False)
-print("\n✅ All batches merged successfully into 'beyondblue_suicidal_posts_all.csv'")
+print("\n All batches merged successfully into 'beyondblue_suicidal_posts_all.csv'")

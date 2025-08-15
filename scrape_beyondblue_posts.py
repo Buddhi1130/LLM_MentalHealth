@@ -29,14 +29,14 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 total_threads = len(threads_df)
 batch_count = (total_threads + BATCH_SIZE - 1) // BATCH_SIZE
 
-print(f"✅ Total threads: {total_threads}")
-print(f"✅ Batch size: {BATCH_SIZE}")
-print(f"✅ Number of batches: {batch_count}")
+print(f" Total threads: {total_threads}")
+print(f" Batch size: {BATCH_SIZE}")
+print(f" Number of batches: {batch_count}")
 
 for batch_num in range(batch_count):
     start_index = batch_num * BATCH_SIZE
     end_index = min(start_index + BATCH_SIZE, total_threads)
-    print(f"\n🟢 Processing batch {batch_num + 1}/{batch_count}: rows {start_index}–{end_index - 1}")
+    print(f"\n Processing batch {batch_num + 1}/{batch_count}: rows {start_index}–{end_index - 1}")
 
     posts_data = []
 
@@ -90,10 +90,10 @@ for batch_num in range(batch_count):
                 "Number of Comments": num_comments,
             })
 
-            print(f"✅ Scraped: {title[:50]}...")
+            print(f" Scraped: {title[:50]}...")
 
         except Exception as e:
-            print(f"⚠️ Skipping {url} due to error: {e}")
+            print(f" Skipping {url} due to error: {e}")
 
         time.sleep(1)
 
@@ -101,8 +101,8 @@ for batch_num in range(batch_count):
     df_batch = pd.DataFrame(posts_data)
     output_file = f"beyondblue_depression_posts_{start_index}_{end_index - 1}.csv"
     df_batch.to_csv(output_file, index=False)
-    print(f"💾 Batch saved: {output_file}")
+    print(f" Batch saved: {output_file}")
 
 driver.quit()
 
-print("\n✅ All batches completed.")
+print("\n All batches completed.")

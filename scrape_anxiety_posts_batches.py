@@ -39,7 +39,7 @@ for idx, row in batch_df.iterrows():
             EC.presence_of_element_located((By.CSS_SELECTOR, "div.lia-message-subject"))
         )
     except Exception as e:
-        print(f"⚠️ Error loading {url}: {e}")
+        print(f" Error loading {url}: {e}")
         continue
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -96,5 +96,5 @@ df = pd.DataFrame(posts_data)
 output_file = f"beyondblue_anxiety_posts_{start_index}_{end_index}.csv"
 df.to_csv(output_file, index=False)
 
-print(f"\n✅ Scraped {len(df)} posts successfully.")
-print(f"💾 Saved to: {output_file}")
+print(f"\n Scraped {len(df)} posts successfully.")
+print(f" Saved to: {output_file}")

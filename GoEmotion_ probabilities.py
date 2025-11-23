@@ -7,7 +7,7 @@ from tqdm import tqdm
 from huggingface_hub import login
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 
-# ====== EDIT THIS ======
+
 MY_READ_TOKEN = "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"
 INPUT  = "Final_Objective1_With_VADER_comp.csv"
 OUTPUT = "Final_with_GoEmotions_Probs.csv"
